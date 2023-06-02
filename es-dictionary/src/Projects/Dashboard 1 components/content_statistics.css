@@ -11,19 +11,13 @@
 
 .user_details{
     position: relative;
-    background-color: red;
     width: 320px;
-    height: 76vh;
     border-top-left-radius: 2%;
     border-bottom-left-radius: 2%;
 }
 
-.user_background{
-}
-
 .background{
    position: relative;
-   background-color: aqua;
    width: 50%;
    height: 140px;
    margin-top: 20px;
@@ -92,3 +86,210 @@ background-color: rgb(95, 155, 155);
     align-content: center;
     transform: translate(10%);
 }
+
+  .container {
+    height: 100vh;
+  }
+
+  .container_profile {
+    width: 45%;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #a4adb4;
+    padding: 12px;
+  }
+  
+  .profile-section {
+    text-align: center;
+  }
+  
+  .profile-picture {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #999999;
+    padding: 20px 10px 20px 10px;
+    border: 1px solid #bcbcbc;
+  }
+  
+  .profile-image {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .profile-image img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .choose-button {
+    padding: 10px 15px;
+    background-color: #465046;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  
+  .change-button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 5px 10px;
+    background-color: #465046;
+    color: #e3e3e3;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .user-details-section {
+    text-align: left;
+  }
+  
+  .details {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+  }
+  
+  .detail {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .label {
+    margin-right: 5px;
+  }
+  
+  .edit-button,
+  .save-button {
+    padding: 10px 20px;
+    background-color: #4a4a4a;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #profilePic {
+    display: none;
+  }
+  
+  .input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .input-group label {
+    margin-right: 10px;
+  }
+  
+  .input-group input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .input-group input[type='number'] {
+    width: 50px;
+  }
+  
+  .input-group input[type='email'] {
+    width: 200px;
+  }
+  
+  .user-details {
+    border: 1px solid #bcbcbc;
+    border-radius: 4px;
+    padding: 10px;
+    max-width: 100%;
+    margin: 0 auto;
+    background-color: #8c8c8c;
+  }
+  
+  .user-details h2 {
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 24px;
+    text-transform: uppercase;
+  }
+  
+  .user-details ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .user-details li {
+    margin-bottom: 10px;
+  }
+  
+  .user-details button {
+    padding: 10px 20px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .user-details input[type='text'],
+  .user-details input[type='number'],
+  .user-details input[type='email'] {
+    padding: 8px;
+    width: 100%;
+    border: 1px solid #7f7f7f;
+    border-radius: 4px;
+  }
+  
+  .user-details .edit-button {
+    background-color: #4a4a4a;
+  }
+  
+  .user-details .save-button {
+    background-color: #4a4a4a;
+  }
+  
+  .user-details .input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .user-details .input-group input {
+    margin-bottom: 10px;
+  }
+  
+  .user-details .input-group label {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .user-details .detail {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+  }
+  
+  .user-details .detail .label {
+    font-weight: bold;
+    font-size: 17px;
+    margin-right: 5px;
+    color: #333;
+  }
+  
+  .user-details .detail .value {
+    color: #777;
+  }
+  
