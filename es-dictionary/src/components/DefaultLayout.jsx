@@ -8,6 +8,7 @@ import Sidebar from "../Projects/Dashboard 2 components/Sidebar";
 import Dictionary from "../Projects/Dashboard 2 components/Dictionary";
 import Users from "../views/Users"
 import Dashboard from "../views/Dashboard"
+import Statistics from "../Projects/Dashboard 1 components/Statistics";
 
 export default function DefaultLayout() {
     const [showSidebar, setShowSidebar] = useState(false); //
