@@ -96,6 +96,36 @@ export default function DefaultLayout() {
         }
       };
 
+    // PROGRESS BAR
+
+      const [progress, setProgress] = useState(0);
+      const [searchCount, setSearchCount] = useState(0);
+      
+      const handleSearch = () => {
+        if (progress < 360) {
+          setProgress(progress + 3.6);
+        }
+        if (progress >= 360){
+          setProgress(progress - 360);
+        }
+  
+        setSearchCount(searchCount + 1);
+      };
+
+      const [saveprogress, setsaveprogress] = useState(0);
+      const [saveCount, setSaveCount] = useState(0);
+  
+      const handleSearch2 = () => {
+        if (saveprogress < 360) {
+          setsaveprogress(saveprogress + 3.6);
+        }
+        if (saveprogress >= 360){
+          setsaveprogress(saveprogress - 360);
+        }
+        setSaveCount(saveCount + 1);
+      };
+
+
     return (
         <div className={showContainer?"container2":"container"} >
             <Sidebar click={onLogout} showSidebar={showSidebar} showSideHeader={showSideHeader} showUserInfo={showUserInfo}
@@ -105,7 +135,7 @@ export default function DefaultLayout() {
             <div className="fixed-container">
             <Navbar  color={handleClick} click={handleClick2} showSun={showSun} showMoon={showMoon}
             showLeft={showLeft} showRight={showRight} showUpload={showUpload}/>
-             {showComponent1 ? <Users showRecentSearch={showRecentSearch}/> : <Dashboard />}
+             {showComponent1 ? <Dictionary showRecentSearch={showRecentSearch} searchclick={handleSearch} saveclick={handleSearch2}/> : <Dashboard progress={progress} searchCount={searchCount} saveprogress={saveprogress} saveCount={saveCount}/>}
              </div>
             </main>
         </div>

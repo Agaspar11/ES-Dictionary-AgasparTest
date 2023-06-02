@@ -1,129 +1,127 @@
+:root
+{
+    --light-container: #FFF2CC;
+    --light-boxes-aside: #FFD966;
+    --light-minibox: #F4B183;
+    --light-text: #DFA67B;
+    --light-normal-text: black;
 
-.Menu{
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #7d2ae8;
+    --Dark-container: #1A120B;
+    --Dark-boxes-aside: #3C2A21;
+    --Dark-minibox: #D5CEA3;
+    --Dark-text: #E5E5CB;
+    --Dark-white: white;
+
 }
 
-.flexbox{
-    position: relative;
-    background-color: #fff;
+.progress-maincontainer{
     display: flex;
-    width: 80%;
-    padding-top: 10px;
-    border-radius: 8px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 50px
+}
+
+.progress-box{
+    display: flex;
     flex-direction: column;
-    align-items: center;
-    row-gap: 2px;
-    margin:0.7rem 1.9rem;
-}
-
-.circular-progress1{
-    position: relative;
-    height: 6rem;
-    width: 6rem;
-    background: conic-gradient(#000000 45%, #ededed 0deg);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
+    background-color: var(--light-boxes-aside);
+    width: 400px;
     justify-content: center;
-}
-
-.circular-progress1::before{
-    content:"";
-    position: absolute;
-    height: 4.5rem;
-    width: 4.5rem;
-    border-radius: 50%;
-    background-color: #fff;
-}
-
-.circular-progress2{
-    position: relative;
-    height: 6rem;
-    width: 6rem;
-    background: conic-gradient(#000000 10%, #ededed 0deg);
-    border-radius: 50%;
-    display: flex;
     align-items: center;
-    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 20px;
 }
 
-.circular-progress2::before{
-    content:"";
-    position: absolute;
-    height: 4.5rem;
-    width: 4.5rem;
-    border-radius: 50%;
-    background-color: #fff;
+.progress-box h3{
+    color: black;
 }
-
-.circular-progress3{
+.progress-container {
+    margin-top: 10px;
     position: relative;
-    height: 6rem;
-    width: 6rem;
-    background: conic-gradient(#000000 50%, #ededed 0deg);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.circular-progress3::before{
-    content:"";
-    position: absolute;
-    height: 4.5rem;
-    width: 4.5rem;
-    border-radius: 50%;
-    background-color: #fff;
-}
-
-.progress-value{
-    position: relative;
-    font-size: 1rem;
-    font-weight: 600;
-    color: #000000;
-}
-
-.text{
-    position: relative;
-    font-size: 1rem;
-    font-weight: 600;
-    color: #000000;
-}
-
-.user-avatar {
     width: 150px;
     height: 150px;
-    margin-right: 20px;
+    background-color: var(--light-container);
+    
     border-radius: 50%;
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
+    display: flex;
   }
   
-  .user-avatar img {
+  .progress-container::before{
+    content: "";
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border-radius: 50%;
+    background-color: var(--light-minibox);
+    height: 120px;
+    width: 120px;
+    
+    z-index: 2;
+  }
+  
+  .search-count{
+    position: relative;
+    top: 40%;
+    left: 40%;
+    z-index: 999;
+    font-size: 40px;
+    font-weight: 600;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  
+  }
+  
+  .progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    border-radius: 50%;
+    transition: all 1s;
+    z-index: 1;
   }
   
-  .avatar-label {
+  /* progress bar 2 */
+  
+  .progress-container2 {
+    margin-top: 10px;
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background-color: var(--light-container);
+    border-radius: 50%;
+    display: flex;
+  }
+  
+  .progress-container2::before{
+    content: "";
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: gray;
-    color: #fff;
-    font-size: 14px;
-    font-weight: bold;
-    text-align: center;
-    padding: 5px;
-    cursor: pointer;
+    top: 15px;
+    right: 15px;
+    border-radius: 50%;
+    height: 120px;
+    width: 120px;
+    background-color: var(--light-minibox);
+    z-index: 2;
   }
   
-  .avatar-input {
-    display: none;
+  .progress-bar2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transition: all 1s;
+    z-index: 1;
   }
+
+  .search-count{
+    color: black;
+  }
+  

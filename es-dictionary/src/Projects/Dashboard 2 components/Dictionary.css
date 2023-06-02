@@ -433,6 +433,22 @@ right: 0;
 width: 40%;
 }
 
+.dictionary_icons {
+
+display: flex;
+}
+
+#save{
+    position: relative;
+    top: 10px;
+    left: 20px;
+    padding: 10px;
+    font-size: 20px;
+    background-color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+}
 .dictionary_container form input[type=text]{
     border: none;
     border-bottom: 1px solid rgb(194, 191, 191);

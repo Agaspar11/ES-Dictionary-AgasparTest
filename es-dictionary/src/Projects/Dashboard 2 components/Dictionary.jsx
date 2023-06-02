@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./Dictionary.css";
 
-export default function Dictionary({showRecentSearch}) {
+export default function Dictionary({ showRecentSearch, searchclick, saveclick }) {
   const [TermSearch, setSearchTerm] = useState("");
   const [Speech, setPartOfSpeech] = useState("");
   const [phonetics, setPhonetics] = useState("");
   const [definition, setDefinition] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [recentSearches, setRecentSearches] = useState([]);
+  const [recentSaveSearches, setRecentSaveSearches] = useState([]);
 
   const MAX_RECENT_SEARCHES = 21;
 
@@ -17,7 +19,7 @@ export default function Dictionary({showRecentSearch}) {
   };
 
   const searchWord = async (searchTerm) => {
-    const MerriamWebKey = '98a198a3-a200-490a-ad48-98ac95b46d80';
+    const MerriamWebKey = "98a198a3-a200-490a-ad48-98ac95b46d80";
     const MerriamWebUrl = `https://dictionaryapi.com/api/v3/references/collegiate/json/${searchTerm}?key=${MerriamWebKey}`;
 
     try {
@@ -38,7 +40,7 @@ export default function Dictionary({showRecentSearch}) {
       setDefinition("No definition found.");
     }
 
-    const UnsplashKey = 'gVfJPtlmzZ4XoaVB4p5SdGe0ILjssdLMcDqR3FH5gn0';
+    const UnsplashKey = "gVfJPtlmzZ4XoaVB4p5SdGe0ILjssdLMcDqR3FH5gn0";
     const UnsplashUrl = `https://api.unsplash.com/photos/random?query=${searchTerm}&client_id=${UnsplashKey}`;
 
     try {
@@ -56,18 +58,31 @@ export default function Dictionary({showRecentSearch}) {
     searchWord(searchTerm);
   };
 
+  const handleSaveSearch = () => {
+    if (!recentSaveSearches.includes(TermSearch)) {
+      const updatedSaveSearches = [TermSearch, ...recentSaveSearches];
+      setRecentSaveSearches(updatedSaveSearches.slice(0, MAX_RECENT_SEARCHES));
+    }
+  };
+
   return (
     <div className="dictionary_container">
-      <form onSubmit={handleSearch}>
-        <input
-          type="text"
-          value={TermSearch}
-          onChange={(event) => setSearchTerm(event.target.value)}
-        />
-        <button className="search_btn" type="submit">
-          <i className="fa-solid fa-magnifying-glass"></i>
-        </button>
-      </form>
+      <div className="dictionary_icons">
+        <form onSubmit={handleSearch}>
+          <input
+            type="text"
+            value={TermSearch}
+            onChange={(event) => setSearchTerm(event.target.value)}
+          />
+          <button className="search_btn" type="submit" onClick={searchclick}>
+            <i className="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+        <i className="fas fa-save" id="save" onClick={() => {
+          saveclick();
+          handleSaveSearch();
+        }}></i>
+      </div>
       <div className="dictionary_box">
         <div>
           <h1>{TermSearch}</h1>
@@ -83,10 +98,25 @@ export default function Dictionary({showRecentSearch}) {
         )}
       </div>
 
-      <div className={showRecentSearch?"recent_search2":"recent_search"}>
+      <div className={showRecentSearch ? "recent_search2" : "recent_search"}>
         <h3 className="recent_title">Recent Search</h3>
         <ul className="recent_list">
           {recentSearches.map((search, index) => (
+            <li
+              key={index}
+              className="recent_search_button"
+              onClick={() => handleRecentSearch(search)}
+            >
+              {search}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className={showRecentSearch ? "recent_search2" : "recent_search"}>
+        <h3 className="recent_title">Recent Save Search</h3>
+        <ul className="recent_list">
+          {recentSaveSearches.map((search, index) => (
             <li
               key={index}
               className="recent_search_button"
