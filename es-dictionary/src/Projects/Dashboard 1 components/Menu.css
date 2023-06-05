@@ -1,16 +1,16 @@
 :root
 {
-    --light-container: #FFF2CC;
-    --light-boxes-aside: #FFD966;
-    --light-minibox: #F4B183;
+    --light-container: #aba39d;
+    --light-boxes-aside: #8a7e76;
+    --light-minibox: #F4EBD0;
     --light-text: #DFA67B;
     --light-normal-text: black;
 
-    --Dark-container: #1A120B;
-    --Dark-boxes-aside: #3C2A21;
+    --Dark-container:  #241910;
+    --Dark-boxes-aside: #1A120B;
     --Dark-minibox: #D5CEA3;
-    --Dark-text: #E5E5CB;
-    --Dark-white: white;
+    --Dark-text: #dbecdd;
+    --Dark-white: #D5CEA3;
 
 }
 

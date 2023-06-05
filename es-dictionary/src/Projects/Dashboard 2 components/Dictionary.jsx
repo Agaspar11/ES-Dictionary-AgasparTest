@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./Dictionary.css";
 
+ 
 export default function Dictionary({ showRecentSearch, searchclick, saveclick }) {
   const [TermSearch, setSearchTerm] = useState("");
   const [Speech, setPartOfSpeech] = useState("");
@@ -10,6 +11,8 @@ export default function Dictionary({ showRecentSearch, searchclick, saveclick })
   const [imageUrl, setImageUrl] = useState("");
   const [recentSearches, setRecentSearches] = useState([]);
   const [recentSaveSearches, setRecentSaveSearches] = useState([]);
+  
+  
 
   const MAX_RECENT_SEARCHES = 21;
 
@@ -17,7 +20,8 @@ export default function Dictionary({ showRecentSearch, searchclick, saveclick })
     event.preventDefault();
     searchWord(TermSearch);
   };
-
+  
+    
   const searchWord = async (searchTerm) => {
     const MerriamWebKey = "98a198a3-a200-490a-ad48-98ac95b46d80";
     const MerriamWebUrl = `https://dictionaryapi.com/api/v3/references/collegiate/json/${searchTerm}?key=${MerriamWebKey}`;
@@ -64,10 +68,20 @@ export default function Dictionary({ showRecentSearch, searchclick, saveclick })
       setRecentSaveSearches(updatedSaveSearches.slice(0, MAX_RECENT_SEARCHES));
     }
   };
-
+  
+    {/*CLEAR FIELD*/} 
+    const resetContent = () => {
+      setDefinition('');  
+      setPhonetics('');
+      setPartOfSpeech('');  
+      setImageUrl('');
+      updatedSaveSearches('');
+    };
+     {/*END CLEAR FIELD*/} 
   return (
-    <div className="dictionary_container">
-      <div className="dictionary_icons">
+
+    <div className="dictionary_container"> 
+      <div className="dictionary_icons"> 
         <form onSubmit={handleSearch}>
           <input
             type="text"
@@ -78,11 +92,35 @@ export default function Dictionary({ showRecentSearch, searchclick, saveclick })
             <i className="fa-solid fa-magnifying-glass"></i>
           </button>
         </form>
-        <i className="fas fa-save" id="save" onClick={() => {
+      </div>
+    
+      <div className="menubar">
+       {/*SAVE BUTTON*/}  
+      <ul>        
+        <li>
+        <a onClick={() => {
           saveclick();
           handleSaveSearch();
-        }}></i>
-      </div>
+        }}>
+        <i class="fas fa-save" id="save"></i> 
+        <span class="title" >Save Words</span>
+        </a>
+        </li> 
+        </ul>       
+        {/*END SAVE BUTTON*/}
+
+       {/*CLEAR BUTTON*/}   
+       <ul>
+       <li>
+        <a onClick={resetContent}>
+        <i class="fa-solid fa-trash" id="clear"></i> 
+        <span class="title" >Clear Field</span>
+        </a>
+        </li> 
+        </ul> 
+        </div>
+       {/*END CLEAR BUTTON*/}  
+      
       <div className="dictionary_box">
         <div>
           <h1>{TermSearch}</h1>
@@ -130,3 +168,4 @@ export default function Dictionary({ showRecentSearch, searchclick, saveclick })
     </div>
   );
 }
+  
